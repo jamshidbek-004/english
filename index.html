@@ -53,28 +53,67 @@
   @media (min-width: 960px) {
     .container { max-width: 1040px !important; }
 
-    .topbar { padding: 8px 18px !important; }
-    .tb-label { font-size:16px !important; }
-    .tb-time { font-size:17px !important; }
-    .tb-icon { width: 18px !important; height: 18px !important; }
+    .hero-flex {
+      display: grid !important;
+      grid-template-columns: 1.05fr 1fr 0.55fr !important;
+      grid-template-rows: auto auto 1fr !important;
+      align-items: center !important;
+      column-gap: 44px !important;
+      row-gap: 18px !important;
+      width: 100% !important;
+      max-width: 1080px !important;
+      margin: 0 auto !important;
+      padding: 32px 24px !important;
+      box-sizing: border-box !important;
+    }
+    .hero-flex > .topbar { grid-column: 1 !important; grid-row: 1 !important; justify-self: start !important; margin: 0 !important; }
+    .hero-flex > .hero { grid-column: 1 !important; grid-row: 2 !important; text-align: left !important; align-items: flex-start !important; padding: 0 !important; }
+    .hero-flex > .cta-block { grid-column: 1 !important; grid-row: 3 !important; align-self: start !important; padding: 0 !important; margin-top: 0 !important; }
+    .hero-flex > .expert-row { grid-column: 2 !important; grid-row: 1 / span 3 !important; margin-top: 0 !important; padding: 0 !important; align-self: center !important; }
+    .hero-flex > .desktop-stats-col {
+      display: flex !important;
+      grid-column: 3 !important;
+      grid-row: 1 / span 3 !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: flex-end !important;
+      gap: 40px !important;
+      text-align: right !important;
+      height: 100% !important;
+    }
+    .hero-flex .ku-stat-pos { display: none !important; }
+    .hero-flex .photo-box { border-radius: 210px 210px 24px 24px !important; }
+
+    .headline-accent { white-space: nowrap !important; }
+    .hero-flex .expert-row .expert-name { display: none !important; }
+    .hero-flex .cta-block .desktop-prompt { display: block !important; }
+    .hero-flex .cta-block .stats-card { align-items: flex-start !important; margin: 0 !important; }
+    .hero-flex .cta-block .ku-phone { align-self: flex-start !important; }
+    .hero-flex .cta-block .stats-line { text-align: left !important; }
+    #kuPhoneTopMsg { text-align: left !important; }
+
+    .topbar { padding: 16px 36px !important; }
+    .tb-label { font-size:32px !important; }
+    .tb-time { font-size:34px !important; }
+    .tb-icon { width: 36px !important; height: 36px !important; }
 
     .hero { padding-top: 20px !important; gap: 6px !important; }
-    .headline-line1 { font-size:28px !important; }
-    .headline-accent { font-size:42px !important; }
-    .subhead { font-size:16px !important; max-width: 460px !important; }
+    .headline-line1 { font-size:56px !important; }
+    .headline-accent { font-size:84px !important; }
+    .subhead { font-size:32px !important; max-width: 820px !important; }
 
     .stat { width: 72px !important; height: 72px !important; border-radius: 16px !important; }
     .stat-num { font-size:13px !important; }
     .stat-label { font-size:9px !important; }
-    .photo-shell { width: 210px !important; height: 271px !important; }
-    .photo-box { border-radius: 22px !important; }
+    .photo-shell { width: 420px !important; height: 542px !important; }
+    .photo-box { border-radius: 44px !important; }
     .expert-name { font-size:15px !important; }
 
     .stats-card { padding: 14px 20px !important; max-width: 380px !important; margin: 0 auto !important; }
     .stats-line { font-size:13px !important; }
-    .cta { padding: 16px 44px !important; font-size:16px !important; }
+    .cta { padding: 22px 62px !important; font-size:22px !important; }
 
-    .big-timer { font-size:80px !important; }
+    .big-timer { font-size:40px !important; }
 
     .bonus-card { padding: 36px 40px !important; gap: 18px !important; max-width: 900px !important; margin: 0 auto !important; }
     .bonus-eyebrow { font-size:33px !important; }
@@ -97,6 +136,8 @@
 
 
 <div class="wrap" style="width:100%; background:#F5F3FF; color:#1E1B4B; display:flex; flex-direction:column; align-items:center;">
+
+<div class="hero-flex" style="display:flex; flex-direction:column; align-items:center; width:100%;">
 
   <!-- top bar -->
   <div class="topbar" style="display:inline-flex; align-self:center; justify-content:center; align-items:center; gap:8px; background:#FFFFFF; border:1px solid rgba(109,74,255,0.3); border-radius:999px; padding:10px 20px; margin:14px auto 0 auto; box-sizing:border-box;">
@@ -153,9 +194,22 @@
 
   </div>
 
+  <!-- desktop-only vertical stats column (hidden on mobile; mobile keeps the badges on the photo) -->
+  <div class="desktop-stats-col" style="display:none;">
+    <div>
+      <div style="font-family:'Anton', sans-serif; font-size:30px; color:#6D4AFF;">4000+</div>
+      <div style="font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6890; margin-top:4px;">O'quvchilar</div>
+    </div>
+    <div>
+      <div style="font-family:'Anton', sans-serif; font-size:30px; color:#6D4AFF;">14 yillik</div>
+      <div style="font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6890; margin-top:4px;">Tajriba</div>
+    </div>
+  </div>
+
   <!-- CTA card -->
-  <div class="container" style="width:100%; max-width:640px; box-sizing:border-box; padding:0 24px; margin-top:4px;">
+  <div class="container cta-block" style="width:100%; max-width:640px; box-sizing:border-box; padding:0 24px; margin-top:4px;">
     <div class="stats-card" style="background:#FFFFFF; border:1px solid rgba(109,74,255,0.3); border-radius:20px; padding:12px 16px; display:flex; flex-direction:column; align-items:center; gap:9px; box-sizing:border-box; margin:0 auto;">
+      <div class="desktop-prompt" style="display:none; font-size:16px; font-weight:700; color:#1E1B4B;">Qo'shilish uchun raqamingizni kiriting</div>
       <label class="ku-phone" style="display:inline-flex; align-items:center; gap:8px; align-self:center; padding:11px 16px; border-radius:12px; border:1px solid rgba(109,74,255,0.35); background:#F5F3FF; box-sizing:border-box; cursor:text;">
         <span style="font-family:'Work Sans', sans-serif; font-size:21px; font-weight:600; color:#1E1B4B; white-space:nowrap;">+998</span>
         <input id="kuPhoneTop" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="12" oninput="this.value=window.kuFormatPhone(this.value)" placeholder="__ ___ ____" aria-label="Telefon raqami" class="ku-input" style="width:148px; padding:0; border:none; background:transparent; color:#1E1B4B; font-family:'Work Sans', sans-serif; font-size:21px; font-weight:600; letter-spacing:0.03em; outline:none;">
@@ -165,6 +219,8 @@
       <div class="stats-line" style="font-size:15px; color:#4B4870; text-align:center;">Yopiq kanalga qo'shilish imkoniyati</div>
     </div>
   </div>
+
+</div>
 
   <!-- big countdown -->
   <div style="margin-top:44px; display:flex; flex-direction:column; align-items:center; gap:8px;">
